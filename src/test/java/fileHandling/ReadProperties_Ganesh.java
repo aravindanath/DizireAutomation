@@ -18,7 +18,6 @@ public class ReadProperties_Ganesh {
 		Properties pro = new Properties();
 		pro.load(fis);
 		
-		
 		System.out.println(pro.values());
 		
 	}
