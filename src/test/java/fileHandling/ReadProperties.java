@@ -9,16 +9,18 @@ public class ReadProperties {
 	
 	public static void main(String[] args) throws IOException {
 		
+		///Users/aravindanathdm/git/DizireAutomation 
+//		String path = System.getProperty("user.dir")+File.separator
+//		System.out.println(path);
 		
-		String path = System.getProperty("user.dir")+File.separator+"data"+File.separator+"config.properties";
-		FileInputStream fis = new FileInputStream(path);
-		
-		Properties prop = new Properties();
-		prop.load(fis);
-		String val = prop.getProperty("stagingurl");
-		System.out.println(val);
-		String bro = prop.getProperty("browser");
-		System.out.println(bro);
+//		FileInputStream fis = new FileInputStream(path);
+//		
+//		Properties prop = new Properties();
+//		
+//		prop.load(fis);
+//		String v =prop.getProperty("url");
+//		System.out.println(v);
+//	 
 		
 		
 		
