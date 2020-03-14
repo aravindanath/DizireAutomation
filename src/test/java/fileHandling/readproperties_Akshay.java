@@ -17,7 +17,8 @@ public class readproperties_Akshay {
 		
 		abc.load(fis);
 		String v = abc.getProperty("stagingurl");
-		System.out.println("Hi");
+		System.out.println("bye");
+		
 		
 		
 
