@@ -28,6 +28,13 @@ public class BasePage {
         return url;
     }
 
+    /**
+     *
+     * @param header
+     * @param key
+     * @return
+     * @throws IOException
+     */
 
     public static String getValue(String header, String key) throws IOException {
         String path = System.getProperty("user.dir") + File.separator + "data" + File.separator + "data.ini";
