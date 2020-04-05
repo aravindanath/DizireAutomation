@@ -14,7 +14,7 @@ public class LaunchChrome {
 	protected WebDriver driver;
 	
 	@BeforeClass
-//	@BeforeSuite
+ 
 	public void setup() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
@@ -24,7 +24,7 @@ public class LaunchChrome {
 	
 	
 	@AfterClass
-//	@AfterSuite
+ 
 	public void closeBrowser() {
 		
 		driver.close();
