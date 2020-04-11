@@ -13,6 +13,15 @@ public class LaunchChrome {
 	
 	protected WebDriver driver;
 	
+	@BeforeSuite
+	public void report() {
+		
+		System.out.println("Recording Reports started....");
+		
+	}
+	
+	
+	
 	@BeforeClass
  
 	public void setup() {
@@ -31,4 +40,11 @@ public class LaunchChrome {
 		
 	}
 
+	
+	@AfterSuite
+	public void Endreport() {
+		
+		System.out.println("Recording Reports End....");
+		
+	}
 }

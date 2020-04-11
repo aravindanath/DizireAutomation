@@ -1,5 +1,7 @@
 package TestNG;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
@@ -21,7 +23,7 @@ public class Annotations3 {
 	public void search() {
 
 		System.out.println("search");
-		Assert.fail("Fail...");
+		AssertJUnit.fail("Fail...");
 	}
 
 	@Test(priority=3)
