@@ -1,6 +1,9 @@
 package utilits;
 
 import org.ini4j.Ini;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -45,5 +48,25 @@ public class BasePage {
         return val;
     }
 
+    
+    
+    public static void assertTitle(String actual, String expected) {
+    	Assert.assertEquals(actual, expected, "Title Mismatch");
+    }
+    
+    public static void verifyButton(WebElement actual) {
+    	Assert.assertTrue(actual.isDisplayed(), "Button is not displayed");
+    }
+    
+    public static void verifyButtonEnabled(WebElement actual) {
+    	Assert.assertTrue(actual.isEnabled(), "Button is not Enabled");
+    }
+    
+    
+    public static void sfassertTitle(String actual, String expected) {
+    	 SoftAssert sf= new SoftAssert();
+    	 sf.assertEquals(actual, expected,"Title mis match");
+    	 sf.assertAll();
+    }
 
 }
