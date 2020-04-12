@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,9 +16,9 @@ import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 
+@Listeners(Logs.class)
 public class Annotations5 extends LaunchChrome{
 
- 
 
 	@Test
 	public void launchAmazon() throws InterruptedException {
@@ -32,6 +33,12 @@ public class Annotations5 extends LaunchChrome{
 		System.out.println("search");
 	}
 
+	@Test
+	public void addcart() {
+
+		System.out.println("search");
+		throw new SkipException("Skipping");
+	}
 	@Test
 	public void logout() {
 
