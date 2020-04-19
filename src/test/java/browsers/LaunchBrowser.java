@@ -21,9 +21,7 @@ public class LaunchBrowser {
 			driver = new FirefoxDriver();
 		}
 	}
-	
-	 
-	
+
 	@AfterClass
 	public void close() {
 		driver.close();
