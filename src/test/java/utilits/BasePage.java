@@ -1,6 +1,8 @@
 package utilits;
 
 import org.ini4j.Ini;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
@@ -68,5 +70,28 @@ public class BasePage {
     	 sf.assertEquals(actual, expected,"Title mis match");
     	 sf.assertAll();
     }
+
+
+    public static void acceptAlert(WebDriver driver){
+        Alert alt = driver.switchTo().alert();
+        System.out.println("Alert title: "+ alt.getText());
+        alt.accept();
+    }
+
+    public static void dismissAlert(WebDriver driver){
+        Alert alt = driver.switchTo().alert();
+        System.out.println("Alert title: "+ alt.getText());
+        alt.dismiss();
+    }
+
+
+    public static void acceptAlertAndSendValue(WebDriver driver,String value){
+        Alert alt = driver.switchTo().alert();
+        System.out.println("Alert title: "+ alt.getText());
+        alt.sendKeys(value);
+        alt.accept();
+    }
+
+
 
 }
