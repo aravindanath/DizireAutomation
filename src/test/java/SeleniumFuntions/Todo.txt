@@ -1,0 +1,26 @@
+1. Mouse action Mousehover, click, rt click, drag n drop, double click
+2. Dropdown
+3. file upload / download
+4. Screenshots
+5. Dealing list of elements
+6. Scroll, JS click, Js Element Higlight
+7. Vedio recoding
+8. Windohandling
+9. iframes
+10 Handling Ajax
+9. textfield
+10. checkbox
+11. radio button
+12. file upload /  download
+13. scroll
+14. wait
+15. DB
+16. Takescreenshot
+17. frames
+18 windows handling
+19. calander
+20 autosuggest
+
+
+
+//https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html

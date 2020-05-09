@@ -4,6 +4,8 @@ import org.ini4j.Ini;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -90,6 +92,73 @@ public class BasePage {
         System.out.println("Alert title: "+ alt.getText());
         alt.sendKeys(value);
         alt.accept();
+    }
+
+
+    public static void mouseHover(WebDriver driver, WebElement target){
+        Actions act = new Actions(driver);
+        act.moveToElement(target).build().perform();
+    }
+
+
+    public static void actionsClick(WebDriver driver, WebElement target){
+        Actions act = new Actions(driver);
+        act.click(target).build().perform();
+    }
+
+    public static void dragAndDrop(WebDriver driver, WebElement src, WebElement tgt){
+        Actions act = new Actions(driver);
+        act.dragAndDrop(src,tgt).build().perform();
+    }
+
+
+    public static void rightClick(WebDriver driver, WebElement element){
+        Actions act = new Actions(driver);
+        act.contextClick(element).build().perform();
+
+    }
+
+    public static void doubleClick(WebDriver driver, WebElement element){
+        Actions act = new Actions(driver);
+        act.doubleClick(element).build().perform();
+
+    }
+
+    public static void selectByValue(WebElement element,String val){
+        Select sel = new Select(element);
+        sel.selectByValue(val);
+    }
+
+    public static void selectByIndex(WebElement element,int index){
+        Select sel = new Select(element);
+        sel.selectByIndex(index);
+    }
+
+    public static void selectByVisible(WebElement element,String val){
+        Select sel = new Select(element);
+        sel.selectByVisibleText(val);
+    }
+
+
+    public static void deselectByValue(WebElement element,String val){
+        Select sel = new Select(element);
+        sel.deselectByValue(val);
+    }
+
+    public static void deselectByIndex(WebElement element,int index){
+        Select sel = new Select(element);
+        sel.deselectByIndex(index);
+    }
+
+    public static void deSelectByVisibleText(WebElement element,String val){
+        Select sel = new Select(element);
+        sel.deselectByVisibleText(val);
+    }
+
+
+    public static void deselectAllValue(WebElement element){
+        Select sel = new Select(element);
+        sel.deselectAll();
     }
 
 
