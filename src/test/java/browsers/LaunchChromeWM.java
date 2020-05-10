@@ -2,6 +2,7 @@ package browsers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
@@ -13,24 +14,24 @@ public class LaunchChromeWM {
 	String browser = "chrome";
 	@BeforeClass
 	public void openBrowser() {
+		ChromeOptions ops = new ChromeOptions();
+		ops.addArguments("--disable-notifications");
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();	
+			driver = new ChromeDriver(ops);
 		}else if(browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
 	}
 	
-	@Test
-	public void demo() {
-		driver.get("https://www.google.com");
-	}
-	
+
 	
 	@AfterClass
-	public void close() {
-		driver.close();
+	public void close() throws InterruptedException {
+
+		Thread.sleep(5000);
+		driver.quit();
 	}
 
 }
