@@ -2,6 +2,7 @@ package utilits;
 
 import org.ini4j.Ini;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -161,6 +162,35 @@ public class BasePage {
         sel.deselectAll();
     }
 
+    public void littleScrollVertical(WebDriver driver, String num) {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, " + num + ");");
+    }
+
+
+    public void littleScrollHorizontal(WebDriver driver, String num) {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy( " + num + ",0);");
+    }
+//scrollHeight
+
+    public void ScrollTillEnd(WebDriver driver) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollHeight");
+    }
+
+
+    public static void jsClick(WebDriver driver, WebElement ele) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", ele);
+
+    }
+
+    public static void scrollTillElement(WebDriver driver, WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
+
+    }
+
+    public static void highlightElement(WebDriver driver, WebElement element, String colour) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border='6px solid " + colour.toLowerCase() + "'", element);
+    }
 
 
 }
