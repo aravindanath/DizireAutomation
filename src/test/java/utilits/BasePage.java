@@ -100,6 +100,11 @@ public class BasePage {
         Actions act = new Actions(driver);
         act.moveToElement(target).build().perform();
     }
+    public static void mouseHoverAndClick(WebDriver driver, WebElement target){
+        Actions act = new Actions(driver);
+        act.moveToElement(target).build().perform();
+        act.click(target).perform();
+    }
 
 
     public static void actionsClick(WebDriver driver, WebElement target){
@@ -192,5 +197,9 @@ public class BasePage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].style.border='6px solid " + colour.toLowerCase() + "'", element);
     }
 
+    public static void changeValueToAttribute(WebDriver driver, WebElement element, String val,String attribute){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('"+element+"').setAttribute('"+attribute+"', '"+val+"')");
+    }
 
 }
