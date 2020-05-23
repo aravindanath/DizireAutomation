@@ -8,6 +8,8 @@ import org.testng.annotations.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.util.concurrent.TimeUnit;
+
 public class LaunchBrowser {
 	
 	protected WebDriver driver;
@@ -24,6 +26,7 @@ public class LaunchBrowser {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
 	@AfterClass

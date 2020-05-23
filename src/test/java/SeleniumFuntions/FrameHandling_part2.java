@@ -1,31 +1,26 @@
 package SeleniumFuntions;
 
 import browsers.LaunchChromeWM;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import utilits.BasePage;
 
-public class FrameHandling extends LaunchChromeWM {
+public class FrameHandling_part2 extends LaunchChromeWM {
 
 
     @Test
     public void frameHandling() throws InterruptedException {
 
-        driver.get("https://docs.oracle.com/javase/7/docs/api/");
+        driver.get("http://the-internet.herokuapp.com/iframe");
 
-        driver.switchTo().frame("packageListFrame");
-        driver.findElement(By.linkText("java.applet")).click();
 
-        driver.switchTo().defaultContent();
-        driver.switchTo().frame("packageFrame");
-        Thread.sleep(2000);
-        driver.findElement(By.linkText("AudioClip")).click();
+        driver.switchTo().frame("mce_0_ifr");
+       Thread.sleep(2000);
+       WebElement ele = driver.findElement(By.cssSelector("#tinymce"));
+       ele.clear();
+       ele.sendKeys("Hello we learnt frame handling!");
 
-        driver.switchTo().defaultContent();
-        driver.switchTo().frame("classFrame");
 
-        driver.findElement(By.linkText("loop")).click();
 
     }
 }

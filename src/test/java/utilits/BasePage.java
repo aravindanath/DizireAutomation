@@ -1,19 +1,25 @@
 package utilits;
 
+import com.github.javafaker.Faker;
+import org.apache.commons.io.FileUtils;
 import org.ini4j.Ini;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategy;
 
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Properties;
 
 public class BasePage {
@@ -200,6 +206,45 @@ public class BasePage {
     public static void changeValueToAttribute(WebDriver driver, WebElement element, String val,String attribute){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.getElementById('"+element+"').setAttribute('"+attribute+"', '"+val+"')");
+    }
+
+
+    public static String generateEmail(){
+        Faker fk = new Faker(new Locale("en-IND"));
+        String fn = fk.name().fullName().replace(" ","").replace(".","");
+        String em = fn+"@testmail.com";
+        return em;
+    }
+
+
+
+    public static String generateMobile(){
+        Faker fk = new Faker(new Locale("en-IND"));
+        String num = fk.number().digits(10);
+        return num;
+    }
+
+
+
+    public static void takeScreenShot(WebDriver driver, String name) throws IOException {
+        TakesScreenshot scrShot = ((TakesScreenshot)driver);
+        File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
+        File desFile = new File(System.getProperty("user.dir")+File.separator+name+currentDate()+".png");
+        FileUtils.copyFile(srcFile,desFile);
+    }
+
+    public static void takeFullScreenScreenShot(WebDriver driver, String name) throws IOException {
+        Screenshot  screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+        ImageIO.write(screenshot.getImage(),"png",new File(System.getProperty("user.dir")+File.separator+name+currentDate()+".png"));
+    }
+
+
+
+
+    public static String currentDate(){
+        Date dt = new Date();
+        String cDate = dt.toString().replace(" ","_").replace(":","_").trim();
+        return cDate;
     }
 
 }
