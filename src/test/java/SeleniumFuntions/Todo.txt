@@ -1,21 +1,22 @@
 1. Mouse action Mousehover, click, rt click, drag n drop, double click (done)
 2. Dropdown (done)
 3. file upload / download (done)
-4. Screenshots 1
+4. Screenshots (done))
 5. Dealing list of elements (done)
 6. Scroll, JS click, Js Element Higlight 1 (Done)
 7. Vedio recoding 1
-8. Windohandling 1
-9. iframes 1
-10 Handling Ajax
+8. Windohandling (done)
+9. iframes (done)
+10 Handling Ajax 1
 9. textfield (done)
 10. checkbox (done)
 11. radio button (done)
 12. file upload /  download (done)
-14. wait
+14. wait (done)
 15. DB
 19.calander (done)
 20.autosuggest (done)
+21.FAKE Data generation (done)
 
 jenkins, reports, DB , framework
 
